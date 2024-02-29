@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { s } from "./App.styles";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
+import { View } from "react-native";
+import { Txt } from "./components/DCText/Txt/Txt";
+import { HeaderText } from "./components/DCText/HeaderText/HeaderText";
+
+import { Header } from "./components/Header/Header";
+import { Footer } from "./components/Footer/Footer";
+const Stack = createNativeStackNavigator();
+
+const navTheme = {
+  colors: {
+    background: "transparent",
+  },
+};
 
 export default function App() {
+  const [isFontLoaded] = useFonts({
+    "Konnet-Italic": require("./assets/fonts/Konnect-BlackItalic.otf"),
+    "Konnet-ExtraBold": require("./assets/fonts/Konnect-ExtraBold.otf"),
+    "Konnet-Regular": require("./assets/fonts/Konnect-Regular.otf"),
+  });
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer theme={navTheme}>
+      <SafeAreaProvider>
+        {isFontLoaded && (
+          <SafeAreaView>
+            <Header />
+            <View>
+              <HeaderText>DanceCard</HeaderText>
+              <Txt>Test Test</Txt>
+            </View>
+            <Footer />
+          </SafeAreaView>
+        )}
+      </SafeAreaProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
