@@ -13,8 +13,14 @@ export function Header() {
         />
       </View>
       <View style={s.linkContainer}>
-        <HeaderText style={s.headerTxt}>Happenings</HeaderText>
-        <HeaderText style={s.headerTxt}>Venues</HeaderText>
+        <View>
+        
+          <HeaderText style={s.headerTxt}>Happenings</HeaderText>
+        </View>
+        <View>
+       
+          <HeaderText style={s.headerTxt}>Venues</HeaderText>
+        </View>
       </View>
       <Image
         style={s.headerImg}

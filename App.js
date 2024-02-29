@@ -4,12 +4,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { Txt } from "./components/DCText/Txt/Txt";
 import { HeaderText } from "./components/DCText/HeaderText/HeaderText";
 
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
+
+import { Home } from "./pages/Home/Home";
+
 const Stack = createNativeStackNavigator();
 
 const navTheme = {
@@ -28,13 +31,19 @@ export default function App() {
     <NavigationContainer theme={navTheme}>
       <SafeAreaProvider>
         {isFontLoaded && (
-          <SafeAreaView>
-            <Header />
-            <View>
-              <HeaderText>DanceCard</HeaderText>
-              <Txt>Test Test</Txt>
+          <SafeAreaView style={s.container}>
+            <View style={s.header}>
+              <Header />
             </View>
-            <Footer />
+            <Stack.Navigator
+              screenOptions={{ headerShown: false, animation: "fade" }}
+              initialRouteName="Home"
+            >
+              <Stack.Screen name="Home" component={Home}></Stack.Screen>
+            </Stack.Navigator>
+            <View style={s.footer}>
+              <Footer />
+            </View>
           </SafeAreaView>
         )}
       </SafeAreaProvider>
