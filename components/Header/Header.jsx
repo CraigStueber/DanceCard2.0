@@ -14,17 +14,15 @@ export function Header() {
       </View>
       <View style={s.linkContainer}>
         <View>
-        
           <HeaderText style={s.headerTxt}>Happenings</HeaderText>
         </View>
         <View>
-       
           <HeaderText style={s.headerTxt}>Venues</HeaderText>
         </View>
       </View>
       <Image
         style={s.headerImg}
-        source={require("../../assets/icons/DCshopping.png")}
+        source={require("../../assets/DCsearch.png")}
       />
     </View>
   );
