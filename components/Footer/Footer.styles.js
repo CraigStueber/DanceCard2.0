@@ -34,6 +34,11 @@ export const s = StyleSheet.create({
     width: 70,
     marginBottom: 5,
   },
+  profileFooters: {
+    height: 40,
+    width: 40,
+    borderRadius: 50,
+  },
   addIcon: {
     fontSize: 40,
     paddingBottom: 10,

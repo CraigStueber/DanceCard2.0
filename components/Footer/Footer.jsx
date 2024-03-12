@@ -1,8 +1,10 @@
 import { s } from "./Footer.styles";
+import { useNavigation } from "@react-navigation/native";
 import { View, TouchableOpacity, Image } from "react-native";
 import { Txt } from "../DCText/Txt/Txt";
 
 export function Footer() {
+  const nav = useNavigation();
   return (
     <View style={s.container}>
       <TouchableOpacity style={s.iconFooters}>
@@ -30,10 +32,15 @@ export function Footer() {
           source={require("../../assets/DCmessage.png")}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={s.iconFooters}>
+      <TouchableOpacity
+        style={s.iconFooters}
+        onPress={() => nav.navigate("Profile")}
+      >
         <Image
-          style={s.footerIcons}
-          source={require("../../assets/dc_logo.png")}
+          style={s.profileFooters}
+          source={{
+            uri: "https://inoxtkubxynhbuslvgyv.supabase.co/storage/v1/object/public/avatar/craigAvatar.jpg",
+          }}
         />
       </TouchableOpacity>
     </View>

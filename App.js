@@ -11,8 +11,9 @@ import { HeaderText } from "./components/DCText/HeaderText/HeaderText";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 
-import { Home } from "./pages/Home/Home";
-
+import { Profile } from "./pages/Profile/Profile";
+import { Happening } from "./pages/Happenings/Happenings";
+import { EventInfo } from "./pages/EventInfo/EventInfo";
 const Stack = createNativeStackNavigator();
 
 const navTheme = {
@@ -35,12 +36,22 @@ export default function App() {
             <View style={s.header}>
               <Header />
             </View>
+
             <Stack.Navigator
               screenOptions={{ headerShown: false, animation: "fade" }}
-              initialRouteName="Home"
+              initialRouteName="Happening"
             >
-              <Stack.Screen name="Home" component={Home}></Stack.Screen>
+              <Stack.Screen name="Profile" component={Profile}></Stack.Screen>
+              <Stack.Screen
+                name="Happening"
+                component={Happening}
+              ></Stack.Screen>
+              <Stack.Screen
+                name="EventInfo"
+                component={EventInfo}
+              ></Stack.Screen>
             </Stack.Navigator>
+
             <View style={s.footer}>
               <Footer />
             </View>
