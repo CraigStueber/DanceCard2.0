@@ -4,7 +4,7 @@ import { ScrollView } from "react-native";
 export function Home() {
   return (
     <ScrollView style={s.container}>
-     
+      <Txt>Test</Txt>
     </ScrollView>
   );
 }
