@@ -23,13 +23,20 @@ export function Header() {
           </TouchableOpacity>
         </View>
         <View>
-          <HeaderText style={s.headerTxt}>Venues</HeaderText>
+          <TouchableOpacity onPress={() => nav.navigate("Location")}>
+            <HeaderText style={s.headerTxt}>Venues</HeaderText>
+          </TouchableOpacity>
         </View>
       </View>
-      <Image
-        style={s.headerImg}
-        source={require("../../assets/DCsearch.png")}
-      />
+      <TouchableOpacity
+        style={s.iconFooters}
+        onPress={() => nav.navigate("ComingSoon")}
+      >
+        <Image
+          style={s.headerImg}
+          source={require("../../assets/DCsearch.png")}
+        />
+      </TouchableOpacity>
     </View>
   );
 }

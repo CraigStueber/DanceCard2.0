@@ -2,6 +2,7 @@ import { s } from "./Profile.styles";
 import { useState, useEffect } from "react";
 import { supabase } from "../../client";
 import { Text, Image, View, TouchableOpacity } from "react-native";
+import { Txt } from "../../components/DCText/Txt/Txt";
 import { idNum } from "../../utils/auth";
 export function Profile() {
   const [userID, setUserID] = useState("");
@@ -22,7 +23,9 @@ export function Profile() {
       .select("*")
       .eq("UserID", userID);
     if (error) {
-      console.error("Error fetching: ", error);
+    
+        console.error("Error fetching: ", error);
+     
       return;
     } else {
       return UserProfile;
@@ -42,25 +45,25 @@ export function Profile() {
                   }}
                 />
                 <View style={s.profileInfoContainer}>
-                  <Text style={s.userName}>{profile.UserName}</Text>
-                  <Text style={s.name}>{profile.FirstName}</Text>
-                  <Text style={s.userLocation}>
+                  <Txt style={s.userName}>{profile.UserName}</Txt>
+                  <Txt style={s.name}>{profile.FirstName}</Txt>
+                  <Txt style={s.userLocation}>
                     {profile.City}, {profile.State}
-                  </Text>
+                  </Txt>
                 </View>
               </View>
               <View style={s.discriptionContainer}>
-                <Text style={s.descriptionHeader}>Description</Text>
-                <Text style={s.descriptionText}>{profile.Description}</Text>
+                <Txt style={s.descriptionHeader}>Description</Txt>
+                <Txt style={s.descriptionText}>{profile.Description}</Txt>
               </View>
               <View style={s.secondHalf}>
                 <View style={s.activities}>
-                  <Text style={s.actHeader}>Favorite Activities</Text>
+                  <Txt style={s.actHeader}>Favorite Activities</Txt>
                   {profile.Activities.map((activity) => {
                     return (
-                      <Text key={activity} style={s.activity}>
+                      <Txt key={activity} style={s.activity}>
                         {activity}
-                      </Text>
+                      </Txt>
                     );
                   })}
                 </View>

@@ -7,26 +7,38 @@ export function Footer() {
   const nav = useNavigation();
   return (
     <View style={s.container}>
-      <TouchableOpacity style={s.iconFooters}>
+      <TouchableOpacity
+        style={s.iconFooters}
+        onPress={() => nav.navigate("ComingSoon")}
+      >
         <Image
           style={s.footerIcons}
           source={require("../../assets/DCfriends.png")}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={s.iconFooters}>
+      <TouchableOpacity
+        style={s.iconFooters}
+        onPress={() => nav.navigate("ComingSoon")}
+      >
         <Image
           style={s.footerIcons}
           source={require("../../assets/DCcalendar.png")}
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={s.midView}>
+      <TouchableOpacity
+        style={s.midView}
+        onPress={() => nav.navigate("CreateHappening")}
+      >
         <Image
           style={s.footerMidIcon}
           source={require("../../assets/DCplus.png")}
         />
       </TouchableOpacity>
-      <TouchableOpacity style={s.iconFooters}>
+      <TouchableOpacity
+        style={s.iconFooters}
+        onPress={() => nav.navigate("ComingSoon")}
+      >
         <Image
           style={s.footerIcons}
           source={require("../../assets/DCmessage.png")}

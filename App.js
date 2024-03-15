@@ -14,6 +14,10 @@ import { Footer } from "./components/Footer/Footer";
 import { Profile } from "./pages/Profile/Profile";
 import { Happening } from "./pages/Happenings/Happenings";
 import { EventInfo } from "./pages/EventInfo/EventInfo";
+import { CreateHappening } from "./pages/CreateHappening/CreateHappening";
+import { Location } from "./pages/Location/Location";
+import { LocationProfile } from "./pages/LocationProfile/LocationProfile";
+import { ComingSoon } from "./pages/ComingSoon/ComingSoon";
 const Stack = createNativeStackNavigator();
 
 const navTheme = {
@@ -36,7 +40,6 @@ export default function App() {
             <View style={s.header}>
               <Header />
             </View>
-
             <Stack.Navigator
               screenOptions={{ headerShown: false, animation: "fade" }}
               initialRouteName="Happening"
@@ -49,6 +52,19 @@ export default function App() {
               <Stack.Screen
                 name="EventInfo"
                 component={EventInfo}
+              ></Stack.Screen>
+              <Stack.Screen
+                name="CreateHappening"
+                component={CreateHappening}
+              ></Stack.Screen>
+              <Stack.Screen
+                name="LocationProfile"
+                component={LocationProfile}
+              ></Stack.Screen>
+              <Stack.Screen name="Location" component={Location}></Stack.Screen>
+              <Stack.Screen
+                name="ComingSoon"
+                component={ComingSoon}
               ></Stack.Screen>
             </Stack.Navigator>
 
