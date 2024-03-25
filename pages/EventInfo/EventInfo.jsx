@@ -39,6 +39,13 @@ export function EventInfo({}) {
       </View>
     );
   });
+  const id = params.item.id;
+  const updateHappening = async (id) => {
+    const { data, error } = await supabase
+      .from("Happening")
+      .update({ attendees: attendees })
+      .eq("id", id);
+  };
   const ToggleShow = () => {
     setShow(!show);
   };
@@ -48,6 +55,7 @@ export function EventInfo({}) {
       const people = attendees.filter((att) => att != userName);
       const people2 = [userName, ...people];
       setAttendees(people2);
+      updateHappening(id);
       setShow(!show);
     } else {
       alert("You didn't type JOIN correctly");
